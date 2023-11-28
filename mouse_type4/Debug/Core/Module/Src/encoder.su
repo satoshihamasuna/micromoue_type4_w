@@ -1,0 +1,11 @@
+encoder.c:21:6:Encoder_Initialize	8	static
+encoder.c:28:6:Encoder_ResetPosition_Left	4	static
+encoder.c:32:6:Encoder_ResetPosition_Right	4	static
+encoder.c:36:10:Encoder_Counts_Left	4	static
+encoder.c:40:10:Encoder_Counts_Right	4	static
+encoder.c:44:9:Encoder_GetPosition_Right	4	static
+encoder.c:48:9:Encoder_GetPosition_Left	4	static
+encoder.c:52:6:Encoder_SetSpeed_Right	8	static
+encoder.c:64:6:Encoder_SetSpeed_Left	8	static
+encoder.c:74:11:Encoder_GetProperty_Right	16	static
+encoder.c:78:11:Encoder_GetProperty_Left	16	static

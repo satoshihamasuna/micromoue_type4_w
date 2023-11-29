@@ -356,7 +356,7 @@ t_position Search::search_adachi_1_acc(	t_position start_pos,t_position goal_pos
 				if(next_acc_dir == Front)
 					motion_plan->search_straight(90.0, 4.0, 0.60, 0.60f);
 				else
-					motion_plan->search_straight(90.0, 4.0, 0.60, 0.30f);
+					motion_plan->search_straight(90.0, 4.0, motion_task::getInstance().target.velo, 0.30f);
 				_map->make_map_queue(goal_pos.x, goal_pos.y, tmp_my_pos, goal_size, 0x01);
 				while(motion_task::getInstance().run_task !=No_run){}
 				break;
@@ -759,7 +759,7 @@ t_position Search::search_adachi_2_acc(	t_position start_pos,t_position goal_pos
 			}
 			else
 			{
-				motion_plan->straight( 45.0, 4.0, 0.30f, 0.30f);
+				motion_plan->straight( 45.0, 4.0, 0.30, 0.30f);
 			}
 			_map->make_map_queue_zenmen(goal_pos.x, goal_pos.y, tmp_my_pos, goal_size, 0x01);
 			while(motion_task::getInstance().run_task !=No_run){}
@@ -815,7 +815,7 @@ t_position Search::search_adachi_2_acc(	t_position start_pos,t_position goal_pos
 		switch(direction | next_acc_flag)
 		{
 			case Front:
-				motion_plan->search_straight( 90.0, 4.0, 0.30f, 0.30f);
+				motion_plan->search_straight( 90.0, 4.0, motion_task::getInstance().target.velo, 0.30f);
 				_map->make_map_queue_zenmen(goal_pos.x, goal_pos.y, tmp_my_pos, goal_size, 0x01);
 				while(motion_task::getInstance().run_task !=No_run){}
 				break;
@@ -823,7 +823,7 @@ t_position Search::search_adachi_2_acc(	t_position start_pos,t_position goal_pos
 				if(next_acc_dir == Front)
 					motion_plan->search_straight(90.0, 4.0, 0.60, 0.60f);
 				else
-					motion_plan->search_straight(90.0, 4.0, 0.60, 0.30f);
+					motion_plan->search_straight(90.0, 4.0, motion_task::getInstance().target.velo, 0.30f);
 				_map->make_map_queue_zenmen(goal_pos.x, goal_pos.y, tmp_my_pos, goal_size, 0x01);
 				while(motion_task::getInstance().run_task !=No_run){}
 				break;

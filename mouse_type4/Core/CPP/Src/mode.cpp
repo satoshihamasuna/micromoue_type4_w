@@ -839,9 +839,9 @@ namespace Mode
 		make_map map_data(&wall_data,&maze_q);
 		Dijkstra run_path(&wall_data);
 		const t_param *const *turn_mode;
-		turn_mode = mode_1400;
+		turn_mode = mode_1000;
 		float acc  = 12.0;
-		float velo = 1.4;
+		float velo = 1.0;
 		uint32_t time = Interrupt::getInstance().return_time_count();
 		while(debug_end == False)
 		{

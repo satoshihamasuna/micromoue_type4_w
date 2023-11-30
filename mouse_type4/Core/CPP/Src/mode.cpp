@@ -217,10 +217,10 @@ namespace Mode
 				  		motion_task::getInstance().ct.speed_ctrl.Gain_Set(6.0, 0.05, 0.0);
 				  		motion_task::getInstance().ct.omega_ctrl.Gain_Set(0.4, 0.01, 0.0);
 				  		KalmanFilter::getInstance().filter_init();
-				  		run_path.turn_time_set(mode_1400);
-						run_path.run_Dijkstra_suction(		start, Dir_None, goal, MAZE_GOAL_SIZE,950,
-															st_mode_1400_v0, (int)(sizeof(st_mode_1400_v0)/sizeof(t_straight_param *const)),
-															di_mode_1400_v0, (int)(sizeof(di_mode_1400_v0)/sizeof(t_straight_param *const)), mode_1400,&mp);
+				  		run_path.turn_time_set(mode_1200);
+						run_path.run_Dijkstra_suction(		start, Dir_None, goal, MAZE_GOAL_SIZE,800,
+															st_mode_1200_v0, (int)(sizeof(st_mode_1200_v1)/sizeof(t_straight_param *const)),
+															di_mode_1200_v0, (int)(sizeof(di_mode_1200_v1)/sizeof(t_straight_param *const)), mode_1200,&mp);
 
 						enable = 0x00;
 					}
@@ -238,8 +238,8 @@ namespace Mode
 				  		KalmanFilter::getInstance().filter_init();
 				  		run_path.turn_time_set(mode_1200);
 						run_path.run_Dijkstra_suction(		start, Dir_None, goal, MAZE_GOAL_SIZE,800,
-															st_mode_1200_v1, (int)(sizeof(st_mode_1200_v1)/sizeof(t_straight_param *const)),
-															di_mode_1200_v1, (int)(sizeof(di_mode_1200_v1)/sizeof(t_straight_param *const)), mode_1200,&mp);
+															st_mode_1200_v2, (int)(sizeof(st_mode_1200_v2)/sizeof(t_straight_param *const)),
+															di_mode_1200_v2, (int)(sizeof(di_mode_1200_v2)/sizeof(t_straight_param *const)), mode_1200,&mp);
 
 						enable = 0x00;
 					}
@@ -255,10 +255,10 @@ namespace Mode
 				  		motion_task::getInstance().ct.speed_ctrl.Gain_Set(6.0, 0.05, 0.0);
 				  		motion_task::getInstance().ct.omega_ctrl.Gain_Set(0.4, 0.01, 0.0);
 				  		KalmanFilter::getInstance().filter_init();
-				  		run_path.turn_time_set(mode_1400);
+				  		run_path.turn_time_set(mode_1200);
 						run_path.run_Dijkstra_suction(		start, Dir_None, goal, MAZE_GOAL_SIZE,950,
-															st_mode_1400_v1, (int)(sizeof(st_mode_1400_v1)/sizeof(t_straight_param *const)),
-															di_mode_1400_v1, (int)(sizeof(di_mode_1400_v1)/sizeof(t_straight_param *const)), mode_1400,&mp);
+															st_mode_1200_v2, (int)(sizeof(st_mode_1200_v2)/sizeof(t_straight_param *const)),
+															di_mode_1200_v3, (int)(sizeof(di_mode_1200_v3)/sizeof(t_straight_param *const)), mode_1200,&mp);
 
 						enable = 0x00;
 					}
@@ -883,7 +883,8 @@ namespace Mode
 						  while(motion_task::getInstance().run_task !=No_run){}
 						  LogData::getInstance().data_count = 0;
 						  LogData::getInstance().log_enable = True;
-						  mp.straight( 90.0*8.0,20.0,3.50,0.0);
+						  const  t_straight_param *st_param = &st_param_3400;
+						  mp.straight( 90.0*8.0,st_param->param->acc,st_param->param->max_velo,0.0,st_param->sp_gain,st_param->om_gain);
 						  while(motion_task::getInstance().run_task !=No_run){}
 						  /*
 						  mp.searchSlalom( &param_L90_search);

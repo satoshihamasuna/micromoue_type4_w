@@ -57,8 +57,8 @@ mouse_type4.bin \
 all: mouse_type4.elf secondary-outputs
 
 # Tool invocations
-mouse_type4.elf: $(OBJS) $(USER_OBJS) C:\Users\sato1\Documents\git\mouse_type4_program\mouse_type4\STM32F446RETX_FLASH.ld
-	arm-none-eabi-g++ -o "mouse_type4.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\sato1\Documents\git\mouse_type4_program\mouse_type4\STM32F446RETX_FLASH.ld" -Wl,-Map="mouse_type4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+mouse_type4.elf: $(OBJS) $(USER_OBJS) C:\Users\sato1\Documents\Git\STM32\program_mouse_type4\micromoue_type4_w\mouse_type4\STM32F446RETX_FLASH.ld
+	arm-none-eabi-g++ -o "mouse_type4.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\sato1\Documents\Git\STM32\program_mouse_type4\micromoue_type4_w\mouse_type4\STM32F446RETX_FLASH.ld" -Wl,-Map="mouse_type4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
